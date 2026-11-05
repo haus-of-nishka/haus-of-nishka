@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HAUS of Nishka Flyer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #2a2a2a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .flyer {
+      width: 480px;
+      background: #0a0806;
+      border: 1px solid #b76e79;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Top glow */
+    .flyer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, #b76e79, #c9a87c, #e8b4b8, #c9a87c, #b76e79);
+    }
+
+    /* ---- HEADER ---- */
+    .flyer-header {
+      text-align: center;
+      padding: 40px 30px 30px;
+      background: radial-gradient(ellipse at top, #1a0f0a 0%, #0a0806 70%);
+      border-bottom: 1px solid #2a1a14;
+      position: relative;
+    }
+
+    .flyer-now-accepting {
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #b76e79;
+      margin-bottom: 10px;
+    }
+
+    .flyer-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: #c9a87c;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(201,168,124,0.3);
+    }
+
+    .flyer-of {
+      font-size: 0.6rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: #d4a0a7;
+      margin: 4px 0;
+    }
+
+    .flyer-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #e8b4b8;
+      line-height: 1;
+    }
+
+    .flyer-divider {
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #b76e79, transparent);
+      margin: 14px auto;
+    }
+
+    .flyer-studio {
+      font-size: 0.6rem;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: #c9a87c;
+    }
+
+    .flyer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      color: #7a5a50;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    /* ---- SERVICE BOX ---- */
+    .flyer-service {
+      text-align: center;
+      padding: 30px;
+      border-bottom: 1px solid #2a1a14;
+      background: #0f0c0a;
+    }
+
+    .flyer-service-label {
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #b76e79;
+      margin-bottom: 10px;
+    }
+
+    .flyer-service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: #c9a87c;
+      margin-bottom: 6px;
+    }
+
+    .flyer-price {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #d4a0a7;
+      text-shadow: 0 0 20px rgba(183,110,121,0.3);
+    }
+
+    .flyer-price span {
+      font-size: 1rem;
+      color: #5a3a30;
+      font-weight: 300;
+    }
+
+    .flyer-price-note {
+      font-size: 0.65rem;
+      color: #e8b4b8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ---- DETAILS ---- */
+    .flyer-details {
+      padding: 24px 30px;
+      border-bottom: 1px solid #2a1a14;
+    }
+
+    .flyer-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.82rem;
+      color: #c4a99a;
+      line-height: 1.6;
+    }
+
+    .flyer-detail-item:last-child { margin-bottom: 0; }
+
+    .flyer-detail-icon {
+      color: #b76e79;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ---- SAME DAY ---- */
+    .flyer-sameday {
+      margin: 0 30px 24px;
+      background: rgba(183,110,121,0.08);
+      border: 1px solid #b76e79;
+      border-radius: 8px;
+      padding: 14px 18px;
+      text-align: center;
+    }
+
+    .flyer-sameday p {
+      font-size: 0.78rem;
+      color: #e8b4b8;
+      line-height: 1.6;
+    }
+
+    .flyer-sameday strong { color: #d4a0a7; }
+
+    /* ---- QR SECTION ---- */
+    .flyer-qr {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #2a1a14;
+      background: #0f0c0a;
+    }
+
+    .flyer-qr-label {
+      font-size: 0.6rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #b76e79;
+      margin-bottom: 16px;
+    }
+
+    .flyer-qr-code {
+      width: 160px;
+      height: 160px;
+      background: white;
+      border-radius: 12px;
+      margin: 0 auto 16px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #b76e79;
+    }
+
+    .flyer-qr-code img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .flyer-qr-text {
+      font-size: 0.7rem;
+      color: #7a5a50;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .flyer-qr-link {
+      font-size: 0.75rem;
+      color: #c9a87c;
+      letter-spacing: 1px;
+      word-break: break-all;
+    }
+
+    /* ---- FOOTER ---- */
+    .flyer-footer {
+      text-align: center;
+      padding: 20px 30px;
+      border-top: 1px solid #2a1a14;
+    }
+
+    .flyer-footer-script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.4rem;
+      color: #c9a87c;
+      margin-bottom: 4px;
+    }
+
+    .flyer-footer-note {
+      font-size: 0.62rem;
+      color: #3a2018;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Bottom line */
+    .flyer-bottom-bar {
+      height: 3px;
+      background: linear-gradient(to right, #b76e79, #c9a87c, #e8b4b8, #c9a87c, #b76e79);
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+
+    <!-- HEADER -->
+    <div class="flyer-header">
+      <p class="flyer-now-accepting">✦ Now Accepting Clients ✦</p>
+      <div class="flyer-script">Haus</div>
+      <div class="flyer-of">of</div>
+      <div class="flyer-name">Nishka</div>
+      <div class="flyer-divider"></div>
+      <div class="flyer-studio">Studio</div>
+      <p class="flyer-tagline">Pretty nails · Good energy · Always</p>
+    </div>
+
+    <!-- SERVICE -->
+    <div class="flyer-service">
+      <p class="flyer-service-label">✦ Now Offering ✦</p>
+      <div class="flyer-service-name">Gel X Full Set</div>
+      <div class="flyer-price">$30 <span>/ set</span></div>
+      <p class="flyer-price-note">✦ Cost to cover supplies only ✦</p>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="flyer-details">
+      <div class="flyer-detail-item">
+        <span class="flyer-detail-icon">💅</span>
+        <span>Gel X extensions only — custom shapes, lengths & designs</span>
+      </div>
+      <div class="flyer-detail-item">
+        <span class="flyer-detail-icon">🌸</span>
+        <span>Beginner artist — I charge only to cover supply costs. Thank you for supporting my journey!</span>
+      </div>
+      <div class="flyer-detail-item">
+        <span class="flyer-detail-icon">⏱️</span>
+        <span>Please allow up to 4 hours per appointment</span>
+      </div>
+      <div class="flyer-detail-item">
+        <span class="flyer-detail-icon">💌</span>
+        <span>Send nail inspo 24hrs before your appointment</span>
+      </div>
+      <div class="flyer-detail-item">
+        <span class="flyer-detail-icon">💵</span>
+        <span>Payment: Zelle or exact cash only</span>
+      </div>
+      <div class="flyer-detail-item">
+        <span class="flyer-detail-icon">🏠</span>
+        <span>Home-based studio · No extra guests · By appointment only</span>
+      </div>
+    </div>
+
+    <!-- SAME DAY -->
+    <div class="flyer-sameday">
+      <p>⚡ <strong>Same-Day Bookings Available!</strong> +$10 upcharge applies (total $40)</p>
+    </div>
+
+    <!-- QR CODE -->
+    <div class="flyer-qr">
+      <p class="flyer-qr-label">✦ Book Your Appointment ✦</p>
+      <div class="flyer-qr-code">
+        <!-- Replace qrcode.png with your actual QR code image file name -->
+        <img src="qrcode.png" alt="Scan to book your appointment"/>
+      </div>
+      <p class="flyer-qr-text">Scan to book or visit:</p>
+      <p class="flyer-qr-link">radiant-elf-c83338.netlify.app</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="flyer-footer">
+      <div class="flyer-footer-script">Haus of Nishka Studio</div>
+      <p class="flyer-footer-note">More than just nails... it's a vibe 🤍</p>
+    </div>
+
+    <div class="flyer-bottom-bar"></div>
+  </div>
+</body>
+</html>
