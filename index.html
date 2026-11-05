@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HAUS of Nishka Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #0a0a0a;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --pink: #f4a7b9;
+      --pink-light: #fde8ef;
+      --white: #ffffff;
+      --dark-bg: #111111;
+      --card-bg: #1a1a1a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* ===================== NAVBAR ===================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: rgba(10,10,10,0.95);
+      border-bottom: 1px solid var(--gold);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span { color: var(--pink); }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: radial-gradient(ellipse at top, #1a1200 0%, #0a0a0a 70%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 60% 40%, rgba(201,168,76,0.07) 0%, transparent 60%),
+                  radial-gradient(circle at 30% 70%, rgba(244,167,185,0.07) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--black);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 .gold { color: var(--gold); }
+    .hero h1 .pink { color: var(--pink); }
+
+    .hero-sub {
+      font-size: 1rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      max-width: 560px;
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .hero-desc .highlight {
+      color: var(--pink);
+      font-weight: 700;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.6);
+    }
+
+    .hero-scroll {
+      margin-top: 60px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      color: #666;
+      text-transform: uppercase;
+    }
+
+    /* ===================== NOTICE BANNER ===================== */
+    .notice-banner {
+      background: linear-gradient(135deg, #1a0a00, #2a1500);
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    .notice-banner p {
+      color: var(--gold-light);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .notice-banner strong { color: var(--pink); }
+
+    /* ===================== SECTIONS ===================== */
+    section { padding: 90px 20px; }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .section-title .gold { color: var(--gold); }
+    .section-title .pink { color: var(--pink); }
+
+    .section-line {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), var(--pink));
+      margin: 0 auto 40px;
+    }
+
+    .centered { text-align: center; }
+
+    /* ===================== ABOUT ===================== */
+    .about {
+      background: var(--dark-bg);
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      color: #ccc;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .about-text strong { color: var(--gold); }
+
+    .beginner-box {
+      background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(244,167,185,0.1));
+      border: 1px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px 32px;
+      margin-top: 30px;
+    }
+
+    .beginner-box p {
+      color: var(--pink-light);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .beginner-box strong { color: var(--gold); }
+
+    /* ===================== SERVICE ===================== */
+    .service-section {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .service-card {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 50px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold), var(--pink), var(--gold));
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .service-price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 20px 0;
+    }
+
+    .service-price span {
+      font-size: 1.2rem;
+      color: #999;
+      font-weight: 300;
+    }
+
+    .service-price-note {
+      font-size: 0.8rem;
+      color: var(--pink);
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .service-details {
+      list-style: none;
+      text-align: left;
+      margin: 20px 0 30px;
+    }
+
+    .service-details li {
+      padding: 10px 0;
+      border-bottom: 1px solid #2a2a2a;
+      color: #ccc;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .service-details li:last-child { border-bottom: none; }
+
+    .service-details li .icon { color: var(--gold); font-size: 1rem; }
+
+    .same-day-box {
+      background: rgba(244,167,185,0.1);
+      border: 1px solid var(--pink);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+
+    .same-day-box p {
+      color: var(--pink-light);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .same-day-box strong { color: var(--pink); }
+
+    /* ===================== GALLERY ===================== */
+    .gallery-section {
+      background: var(--dark-bg);
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      position: relative;
+      aspect-ratio: 4/5;
+      background: var(--card-bg);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      padding: 20px 16px 16px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===================== INSPO NOTE ===================== */
+    .inspo-section {
+      background: linear-gradient(135deg, #0f0a00, #1a0010);
+      text-align: center;
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .inspo-box {
+      max-width: 650px;
+      margin: 0 auto;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 50px 40px;
+    }
+
+    .inspo-box h2 {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .inspo-box p {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .inspo-box strong { color: var(--pink); }
+
+    /* ===================== HOURS ===================== */
+    .hours-section {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hours-card {
+      background: var(--card-bg);
+      border: 1px solid #2a2a2a;
+      border-radius: 14px;
+      padding: 20px;
+      transition: border-color 0.3s;
+    }
+
+    .hours-card:hover { border-color: var(--gold); }
+
+    .hours-day {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .hours-time {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    /* ===================== POLICIES ===================== */
+    .policies-section {
+      background: var(--dark-bg);
+      text-align: center;
+    }
+
+    .policies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .policy-card {
+      background: var(--card-bg);
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 30px 24px;
+      text-align: left;
+      transition: border-color 0.3s;
+    }
+
+    .policy-card:hover { border-color: var(--gold); }
+
+    .policy-icon { font-size: 2rem; margin-bottom: 14px; }
+
+    .policy-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .policy-text {
+      font-size: 0.88rem;
+      color: #bbb;
+      line-height: 1.7;
+    }
+
+    /* ===================== PAYMENT ===================== */
+    .payment-section {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .payment-grid {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .payment-card {
+      background: var(--card-bg);
+      border: 1px solid var(--gold);
+      border-radius: 16px;
+      padding: 30px 40px;
+      text-align: center;
+      min-width: 180px;
+    }
+
+    .payment-card .pay-icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+    .payment-card p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+    }
+
+    .payment-note {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: #999;
+    }
+
+    .payment-note strong { color: var(--pink); }
+
+    /* ===================== BOOKING ===================== */
+    .booking-section {
+      background: linear-gradient(135deg, #0f0800, #0a0a0a);
+      text-align: center;
+      border-top: 1px solid var(--gold);
+    }
+
+    .booking-box {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .booking-box p {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .booking-box strong { color: var(--gold); }
+
+    /* Calendly embed */
+    .calendly-inline-widget {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--gold);
+      margin-top: 30px;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: #050505;
+      border-top: 1px solid #1a1a1a;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span { color: var(--pink); }
+
+    .footer-tagline {
+      font-size: 0.8rem;
+      color: #555;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-note {
+      font-size: 0.78rem;
+      color: #444;
+    }
+
+    /* ===================== MOBILE ===================== */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 2.5rem; }
+      section { padding: 60px 16px; }
+      .inspo-box { padding: 30px 20px; }
+      .service-card { padding: 36px 24px; }
+    }
+
+    /* ===================== SCROLL ANIMATIONS ===================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav>
+  <div class="nav-logo">HAUS <span>of Nishka</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#policies">Policies</a></li>
+    <li><a href="#book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-badge">✦ Now Accepting Clients ✦</div>
+  <h1><span class="gold">HAUS</span> of<br/><span class="pink">Nishka</span> Studio</h1>
+  <p class="hero-sub">Gel X Nail Studio · Home Based</p>
+  <p class="hero-desc">
+    Welcome to my creative space. I specialize in <strong class="highlight">Gel X nails</strong> — 
+    beautifully crafted, one set at a time. I'm a <strong class="highlight">beginner artist</strong> 
+    building my skills and looking for amazing clients to practice on!
+  </p>
+  <a href="#book" class="btn-gold">Book Your Set — $30</a>
+  <p class="hero-scroll">↓ Scroll to explore</p>
+</section>
+
+<!-- ===================== NOTICE BANNER ===================== -->
+<div class="notice-banner">
+  <p>
+    💌 <strong>IMPORTANT:</strong> Please send your nail inspo <strong>24 hours before your appointment</strong> so I can confirm I can achieve your desired look. 
+    &nbsp;|&nbsp; 📍 Exact location details will be sent to you <strong>24 hours before your appointment.</strong>
+  </p>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="about fade-in">
+    <span class="section-label">✦ Welcome ✦</span>
+    <h2 class="section-title">About <span class="gold">HAUS of Nishka</span></h2>
+    <div class="section-line"></div>
+    <p class="about-text">
+      Hi loves! I'm <strong>Nishka</strong> — a passionate nail artist running a cozy, 
+      intimate <strong>home-based studio</strong>. I created HAUS of Nishka Studio as a space 
+      to grow my craft while giving my clients beautiful, affordable nails.
+    </p>
+    <p class="about-text">
+      I only offer <strong>Gel X nails</strong> — my one true love in the nail world. 
+      Every set is done with care, creativity, and patience. Because I take my time 
+      to make sure everything is perfect, please allow up to <strong>4 hours</strong> for your appointment.
+    </p>
+    <div class="beginner-box">
+      <p>
+        🌸 <strong>Please Note:</strong> I am a <strong>beginner nail artist</strong> who is actively 
+        practicing and growing my skills. I charge only <strong>$30 per set</strong> — strictly to cover 
+        the cost of supplies. I appreciate your patience, your trust, and your support 
+        as I build my craft. Thank you for being part of my journey! 💗
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICE ===================== -->
+<section class="service-section" id="service">
+  <span class="section-label centered">✦ What I Offer ✦</span>
+  <h2 class="section-title centered">The <span class="gold">Service</span></h2>
+  <div class="section-line"></div>
+
+  <div class="service-card fade-in">
+    <div class="service-icon">💅</div>
+    <div class="service-name">Gel X Nails</div>
+    <div class="service-price">$30 <span>/ full set</span></div>
+    <div class="service-price-note">✦ Cost to cover supplies only ✦</div>
+    <ul class="service-details">
+      <li><span class="icon">✦</span> Full set of Gel X extensions</li>
+      <li><span class="icon">✦</span> Custom shapes & lengths</li>
+      <li><span class="icon">✦</span> Nail art / designs (inspo required 24hrs prior)</li>
+      <li><span class="icon">✦</span> Please allow up to <strong>4 hours</strong> — I'm thorough & new to this!</li>
+      <li><span class="icon">✦</span> Home-based studio — 1 client at a time, no extra guests</li>
+      <li><span class="icon">✦</span> Payment: <strong>Zelle or Exact Cash only</strong></li>
+    </ul>
+
+    <div class="same-day-box">
+      <p>
+        ⚡ <strong>Same-Day Bookings Available!</strong><br/>
+        A <strong>+$10 upcharge</strong> applies to all same-day appointments 
+        (total = $40). Book your slot and you'll receive your confirmation details right away!
+      </p>
+    </div>
+
+    <br/>
+    <a href="#book" class="btn-gold">Book Now</a>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="gallery-section" id="gallery">
+  <span class="section-label">✦ My Work ✦</span>
+  <h2 class="section-title">The <span class="gold">Gallery</span></h2>
+  <div class="section-line"></div>
+  <p style="color:#999; margin-bottom:40px; font-size:0.95rem;">Real sets done by me 💅🖤</p>
+
+  <div class="gallery-grid fade-in">
+
+    <!-- PHOTO 1 — Replace src with your actual image file name -->
+    <div class="gallery-item">
+      <img src="photo1.jpg" alt="Lime green tortoise shell and pink almond gel x nails by Nishka"/>
+      <div class="gallery-caption">Lime Green & Tortoise Shell Set</div>
+    </div>
+
+    <!-- PHOTO 2 — Replace src with your actual image file name -->
+    <div class="gallery-item">
+      <img src="photo2.jpg" alt="Zebra print polka dot blue and yellow gel x nails by Nishka"/>
+      <div class="gallery-caption">Zebra Print & Pop of Color Set</div>
+    </div>
+
+    <!-- PHOTO 3 — Replace src with your actual image file name -->
+    <div class="gallery-item">
+      <img src="photo3.jpg" alt="Pink and gold french tip gel x nails by Nishka"/>
+      <div class="gallery-caption">Pink & Gold French Tip Set</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== INSPO NOTE ===================== -->
+<section class="inspo-section" id="inspo">
+  <div class="inspo-box fade-in">
+    <h2>💌 Send Your Nail Inspo!</h2>
+    <p>
+      Before your appointment, please send your nail inspiration photos 
+      <strong>at least 24 hours in advance.</strong>
+    </p>
+    <p>
+      This gives me time to review your desired look and confirm whether 
+      I'm able to recreate it at my current skill level. I want to be fully 
+      transparent — if I'm not confident I can nail it (pun intended 😄), 
+      I'll let you know so we can find something perfect together!
+    </p>
+    <p style="margin-top:16px; color: var(--gold-light); font-size:0.85rem;">
+      ✦ Inspo must be sent before booking is fully confirmed ✦
+    </p>
+  </div>
+</section>
+
+<!-- ===================== HOURS ===================== -->
+<section class="hours-section" id="hours">
+  <span class="section-label">✦ Come See Me ✦</span>
+  <h2 class="section-title centered">Studio <span class="gold">Hours</span></h2>
+  <div class="section-line"></div>
+  <p style="color:#999; margin-bottom:40px; font-size:0.9rem;">
+    ⏱️ Please allow up to <strong style="color:var(--pink)">4 hours</strong> per appointment
+  </p>
+
+  <div class="hours-grid fade-in">
+    <div class="hours-card">
+      <div class="hours-day">Sunday</div>
+      <div class="hours-time">9:00 AM – 1:00 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Monday</div>
+      <div class="hours-time">9:00 AM – 5:00 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Tuesday</div>
+      <div class="hours-time">9:00 AM – 10:30 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Wednesday</div>
+      <div class="hours-time">9:00 AM – 10:30 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Thursday</div>
+      <div class="hours-time">9:00 AM – 1:00 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Friday</div>
+      <div class="hours-time">9:00 AM – 10:30 PM</div>
+    </div>
+    <div class="hours-card">
+      <div class="hours-day">Saturday</div>
+      <div class="hours-time">9:00 AM – 5:00 PM</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POLICIES ===================== -->
+<section class="policies-section" id="policies">
+  <span class="section-label">✦ Please Read ✦</span>
+  <h2 class="section-title centered">Studio <span class="gold">Policies</span></h2>
+  <div class="section-line"></div>
+
+  <div class="policies-grid fade-in">
+
+    <div class="policy-card">
+      <div class="policy-icon">🚗</div>
+      <div class="policy-title">Arrival</div>
+      <p class="policy-text">
+        When you arrive, please <strong>text me to let me know you're here</strong> so I can open the gate. 
+        Sometimes the gate may already be open — make a right at the gate and drive to <strong>G115.</strong> 
+        Please only park at G115. <strong>Any vehicle parked elsewhere is subject to towing.</strong>
+      </p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">⏰</div>
+      <div class="policy-title">Late Arrivals</div>
+      <p class="policy-text">
+        There is a <strong>10-minute grace period</strong> for late arrivals. 
+        After 10 minutes your appointment may be cancelled and you will need to rebook.
+      </p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">📅</div>
+      <div class="policy-title">Cancellations</div>
+      <p class="policy-text">
+        Please cancel at least <strong>24 hours before</strong> your scheduled appointment. 
+        Late cancellations are not ideal as this takes away a spot from another client.
+      </p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">👥</div>
+      <div class="policy-title">No Extra Guests</div>
+      <p class="policy-text">
+        This is a <strong>home-based business.</strong> Please respect my space. 
+        <strong>No extra guests or additional people</strong> are allowed to accompany you to your appointment. 
+        Clients only, please! 💗
+      </p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">💌</div>
+      <div class="policy-title">Nail Inspo</div>
+      <p class="policy-text">
+        Send your nail inspiration photos <strong>at least 24 hours before your appointment</strong> 
+        so I can confirm whether I can recreate your desired look. No inspo = basic/solid sets only.
+      </p>
+    </div>
+
+    <div class="policy-card">
+      <div class="policy-icon">⏳</div>
+      <div class="policy-title">Appointment Duration</div>
+      <p class="policy-text">
+        Please allow up to <strong>4 hours</strong> for your appointment. 
+        I am a beginner and I take my time to ensure the best possible outcome. 
+        Please plan your day accordingly!
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== PAYMENT ===================== -->
+<section class="payment-section" id="payment">
+  <span class="section-label">✦ Payment ✦</span>
+  <h2 class="section-title centered">How to <span class="gold">Pay</span></h2>
+  <div class="section-line"></div>
+
+  <div class="payment-grid fade-in">
+    <div class="payment-card">
+      <div class="pay-icon">💸</div>
+      <p>Zelle</p>
+    </div>
+    <div class="payment-card">
+      <div class="pay-icon">💵</div>
+      <p>Exact Cash</p>
+    </div>
+  </div>
+
+  <p class="payment-note" style="margin-top:24px;">
+    <strong>Exact cash only please</strong> — I do not carry change. 
+    Payment is due at the time of your appointment. 🖤
+  </p>
+</section>
+
+<!-- ===================== BOOKING ===================== -->
+<section class="booking-section" id="book">
+  <div class="booking-box fade-in">
+    <span class="section-label">✦ Ready? Let's Go ✦</span>
+    <h2 class="section-title">Book Your <span class="gold">Appointment</span></h2>
+    <div class="section-line"></div>
+    <p>
+      Select your preferred date and time below. <strong>Same-day bookings welcome</strong> 
+      (+$10 upcharge applies). After booking you will receive a <strong>confirmation text</strong> 
+      with all the details you need. Your exact location details will be sent 
+      <strong>24 hours before your appointment.</strong>
+    </p>
+    <p style="color: var(--pink); font-size:0.88rem;">
+      💌 Don't forget to send your nail inspo 24 hours before your appointment!
+    </p>
+
+    <!-- 
+      CALENDLY EMBED — Replace the data-url below with YOUR Calendly link.
+      Sign up free at https://calendly.com
+      Set up your event type, hours, and enable SMS/email notifications.
+    -->
+    <div 
+      class="calendly-inline-widget" 
+      data-url="https://calendly.com/YOUR-LINK-HERE?hide_gdpr_banner=1&background_color=111111&text_color=ffffff&primary_color=c9a84c" 
+      style="min-width:280px;height:700px;">
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="footer-logo">HAUS <span>of Nishka</span> Studio</div>
+  <p class="footer-tagline">Gel X Nails · Home Based · By Appointment Only</p>
+  <p class="footer-note">© 2025 HAUS of Nishka Studio. All rights reserved. 🖤</p>
+  <p class="footer-note" style="margin-top:8px;">This is a home-based business. Address provided privately 24 hours before your appointment.</p>
+</footer>
+
+<!-- ===================== SCROLL ANIMATION SCRIPT ===================== -->
+<script>
+  // Fade in elements as user scrolls down
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
