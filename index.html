@@ -6,9 +6,7 @@
   <title>HAUS of Nishka Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
   <style>
-    /* ===================== RESET & BASE ===================== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
       --black: #0a0806;
       --rose-gold: #b76e79;
@@ -24,19 +22,14 @@
       --card-bg: #1a1410;
       --card-border: #3a2a20;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Lato', sans-serif;
       background-color: var(--black);
       color: var(--white);
       overflow-x: hidden;
     }
-
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
-    /* ===================== NAVBAR ===================== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -49,22 +42,18 @@
       border-bottom: 1px solid var(--rose-gold);
       backdrop-filter: blur(10px);
     }
-
     .nav-logo {
       font-family: 'Great Vibes', cursive;
       font-size: 1.8rem;
       color: var(--warm-gold);
       letter-spacing: 2px;
     }
-
     .nav-logo span { color: var(--pink); }
-
     .nav-links {
       display: flex;
       gap: 30px;
       list-style: none;
     }
-
     .nav-links a {
       color: var(--white);
       text-decoration: none;
@@ -73,10 +62,7 @@
       text-transform: uppercase;
       transition: color 0.3s;
     }
-
     .nav-links a:hover { color: var(--rose-gold-light); }
-
-    /* ===================== HERO ===================== */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -85,14 +71,13 @@
       align-items: center;
       text-align: center;
       padding: 120px 20px 60px;
-      background: 
+      background:
         radial-gradient(ellipse at top right, rgba(183,110,121,0.15) 0%, transparent 60%),
         radial-gradient(ellipse at bottom left, rgba(201,168,124,0.1) 0%, transparent 60%),
         radial-gradient(ellipse at center, #1a0f0a 0%, #0a0806 70%);
       position: relative;
       overflow: hidden;
     }
-
     .hero::before {
       content: '✦';
       position: absolute;
@@ -101,7 +86,6 @@
       color: rgba(201,168,124,0.3);
       animation: twinkle 3s infinite alternate;
     }
-
     .hero::after {
       content: '✦';
       position: absolute;
@@ -110,12 +94,10 @@
       color: rgba(183,110,121,0.4);
       animation: twinkle 2s infinite alternate;
     }
-
     @keyframes twinkle {
       0% { opacity: 0.2; transform: scale(1); }
       100% { opacity: 1; transform: scale(1.3); }
     }
-
     .hero-badge {
       display: inline-block;
       background: linear-gradient(135deg, var(--rose-gold), var(--rose-gold-light));
@@ -128,7 +110,6 @@
       border-radius: 50px;
       margin-bottom: 24px;
     }
-
     .hero-script {
       font-family: 'Great Vibes', cursive;
       font-size: clamp(3.5rem, 10vw, 7rem);
@@ -137,7 +118,6 @@
       margin-bottom: 0;
       text-shadow: 0 0 40px rgba(201,168,124,0.3);
     }
-
     .hero h1 {
       font-size: clamp(1.2rem, 4vw, 2rem);
       letter-spacing: 8px;
@@ -146,7 +126,6 @@
       font-weight: 400;
       margin-bottom: 6px;
     }
-
     .hero-studio {
       font-family: 'Lato', sans-serif;
       font-size: 0.75rem;
@@ -155,14 +134,12 @@
       color: var(--rose-gold-light);
       margin-bottom: 8px;
     }
-
     .hero-nurse {
       font-family: 'Great Vibes', cursive;
       font-size: 1.4rem;
       color: var(--pink);
       margin-bottom: 30px;
     }
-
     .hero-tagline {
       font-size: 0.8rem;
       letter-spacing: 3px;
@@ -171,7 +148,6 @@
       margin-bottom: 16px;
       opacity: 0.8;
     }
-
     .hero-desc {
       max-width: 500px;
       font-size: 0.95rem;
@@ -179,9 +155,7 @@
       line-height: 1.9;
       margin-bottom: 40px;
     }
-
     .hero-desc .highlight { color: var(--rose-gold-light); font-weight: 700; }
-
     .btn-rosegold {
       display: inline-block;
       background: linear-gradient(135deg, var(--rose-gold), var(--rose-gold-light), var(--warm-gold));
@@ -198,12 +172,10 @@
       border: none;
       cursor: pointer;
     }
-
     .btn-rosegold:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 35px rgba(183,110,121,0.6);
     }
-
     .hero-scroll {
       margin-top: 50px;
       font-size: 0.7rem;
@@ -211,15 +183,12 @@
       color: #5a3a30;
       text-transform: uppercase;
     }
-
     .hero-divider {
       width: 120px;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--rose-gold), transparent);
       margin: 20px auto;
     }
-
-    /* ===================== NOTICE BANNER ===================== */
     .notice-banner {
       background: linear-gradient(135deg, #150a08, #1f1008);
       border-top: 1px solid var(--rose-gold);
@@ -227,18 +196,13 @@
       padding: 20px 30px;
       text-align: center;
     }
-
     .notice-banner p {
       color: var(--warm-gold-light);
       font-size: 0.88rem;
       line-height: 1.8;
     }
-
     .notice-banner strong { color: var(--pink); }
-
-    /* ===================== SECTIONS ===================== */
     section { padding: 90px 20px; }
-
     .section-label {
       font-size: 0.65rem;
       letter-spacing: 4px;
@@ -247,46 +211,34 @@
       margin-bottom: 12px;
       display: block;
     }
-
     .section-title {
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       color: var(--white);
       margin-bottom: 20px;
     }
-
     .section-title .gold { color: var(--warm-gold); }
     .section-title .rose { color: var(--rose-gold-light); }
     .section-title .pink { color: var(--pink); }
-
     .section-line {
       width: 60px;
       height: 1px;
       background: linear-gradient(to right, var(--rose-gold), var(--pink));
       margin: 0 auto 40px;
     }
-
     .centered { text-align: center; }
-
-    /* ===================== ABOUT ===================== */
-    .about-section {
-      background: var(--dark-bg);
-    }
-
+    .about-section { background: var(--dark-bg); }
     .about-inner {
       max-width: 780px;
       margin: 0 auto;
       text-align: center;
     }
-
     .about-text {
       font-size: 1rem;
       color: #c4a99a;
       line-height: 1.9;
       margin-bottom: 20px;
     }
-
     .about-text strong { color: var(--warm-gold); }
-
     .beginner-box {
       background: linear-gradient(135deg, rgba(183,110,121,0.08), rgba(201,168,124,0.08));
       border: 1px solid var(--rose-gold);
@@ -294,15 +246,12 @@
       padding: 28px 32px;
       margin-top: 30px;
     }
-
     .beginner-box p {
       color: var(--pink-light);
       font-size: 0.93rem;
       line-height: 1.9;
     }
-
     .beginner-box strong { color: var(--warm-gold); }
-
     .vibe-text {
       font-family: 'Great Vibes', cursive;
       font-size: 1.8rem;
@@ -310,13 +259,10 @@
       margin-top: 30px;
       display: block;
     }
-
-    /* ===================== SERVICE ===================== */
     .service-section {
       background: var(--black);
       text-align: center;
     }
-
     .service-card {
       max-width: 520px;
       margin: 0 auto;
@@ -327,7 +273,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .service-card::before {
       content: '';
       position: absolute;
@@ -335,16 +280,13 @@
       height: 2px;
       background: linear-gradient(to right, var(--rose-gold), var(--warm-gold), var(--pink), var(--rose-gold));
     }
-
     .service-icon { font-size: 3rem; margin-bottom: 20px; }
-
     .service-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
       color: var(--warm-gold);
       margin-bottom: 10px;
     }
-
     .service-price {
       font-size: 3.5rem;
       font-weight: 700;
@@ -352,13 +294,11 @@
       margin: 16px 0 4px;
       text-shadow: 0 0 30px rgba(183,110,121,0.3);
     }
-
     .service-price span {
       font-size: 1.1rem;
       color: #8a6a60;
       font-weight: 300;
     }
-
     .service-price-note {
       font-size: 0.75rem;
       color: var(--pink);
@@ -366,15 +306,12 @@
       text-transform: uppercase;
       margin-bottom: 24px;
     }
-
-    /* FIXED service details - no more floating words */
     .service-details {
       list-style: none;
       text-align: left;
       margin: 20px 0 30px;
       width: 100%;
     }
-
     .service-details li {
       padding: 12px 0;
       border-bottom: 1px solid #2a1a14;
@@ -386,18 +323,14 @@
       line-height: 1.6;
       width: 100%;
     }
-
     .service-details li:last-child { border-bottom: none; }
-
     .service-details li .icon {
       color: var(--rose-gold);
       font-size: 0.8rem;
       flex-shrink: 0;
       margin-top: 3px;
     }
-
     .service-details li .text { flex: 1; }
-
     .same-day-box {
       background: rgba(183,110,121,0.1);
       border: 1px solid var(--rose-gold);
@@ -405,21 +338,16 @@
       padding: 18px;
       margin-top: 20px;
     }
-
     .same-day-box p {
       color: var(--pink-light);
       font-size: 0.88rem;
       line-height: 1.7;
     }
-
     .same-day-box strong { color: var(--rose-gold-light); }
-
-    /* ===================== GALLERY ===================== */
     .gallery-section {
       background: var(--dark-bg);
       text-align: center;
     }
-
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -427,7 +355,6 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-
     .gallery-item {
       border-radius: 16px;
       overflow: hidden;
@@ -437,12 +364,10 @@
       background: var(--card-bg);
       transition: transform 0.3s, border-color 0.3s;
     }
-
     .gallery-item:hover {
       transform: translateY(-6px);
       border-color: var(--rose-gold);
     }
-
     .gallery-item img {
       width: 100%;
       height: 100%;
@@ -450,9 +375,7 @@
       display: block;
       transition: transform 0.4s;
     }
-
     .gallery-item:hover img { transform: scale(1.05); }
-
     .gallery-caption {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -463,15 +386,12 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-
-    /* ===================== INSPO SECTION ===================== */
     .inspo-section {
       background: linear-gradient(135deg, #100806, #1a0d10);
       text-align: center;
       border-top: 1px solid var(--rose-gold);
       border-bottom: 1px solid var(--rose-gold);
     }
-
     .inspo-box {
       max-width: 650px;
       margin: 0 auto;
@@ -480,28 +400,22 @@
       border-radius: 20px;
       padding: 50px 40px;
     }
-
     .inspo-box h2 {
       font-size: 2rem;
       color: var(--warm-gold);
       margin-bottom: 16px;
     }
-
     .inspo-box p {
       color: #c4a99a;
       font-size: 0.95rem;
       line-height: 1.9;
       margin-bottom: 10px;
     }
-
     .inspo-box strong { color: var(--rose-gold-light); }
-
-    /* ===================== HOURS ===================== */
     .hours-section {
       background: var(--black);
       text-align: center;
     }
-
     .hours-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -509,7 +423,6 @@
       max-width: 900px;
       margin: 0 auto;
     }
-
     .hours-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -517,31 +430,25 @@
       padding: 20px 16px;
       transition: border-color 0.3s, transform 0.3s;
     }
-
     .hours-card:hover {
       border-color: var(--rose-gold);
       transform: translateY(-3px);
     }
-
     .hours-day {
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
       color: var(--warm-gold);
       margin-bottom: 8px;
     }
-
     .hours-time {
       font-size: 0.85rem;
       color: #a08070;
       line-height: 1.5;
     }
-
-    /* ===================== POLICIES ===================== */
     .policies-section {
       background: var(--dark-bg);
       text-align: center;
     }
-
     .policies-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -549,7 +456,6 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-
     .policy-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -558,32 +464,24 @@
       text-align: left;
       transition: border-color 0.3s;
     }
-
     .policy-card:hover { border-color: var(--rose-gold); }
-
     .policy-icon { font-size: 1.8rem; margin-bottom: 14px; }
-
     .policy-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.05rem;
       color: var(--warm-gold);
       margin-bottom: 10px;
     }
-
     .policy-text {
       font-size: 0.87rem;
       color: #a08070;
       line-height: 1.8;
     }
-
     .policy-text strong { color: var(--rose-gold-light); }
-
-    /* ===================== PAYMENT ===================== */
     .payment-section {
       background: var(--black);
       text-align: center;
     }
-
     .payment-grid {
       display: flex;
       justify-content: center;
@@ -591,7 +489,6 @@
       flex-wrap: wrap;
       margin-top: 20px;
     }
-
     .payment-card {
       background: var(--card-bg);
       border: 1px solid var(--rose-gold);
@@ -601,67 +498,53 @@
       min-width: 180px;
       transition: transform 0.3s;
     }
-
     .payment-card:hover { transform: translateY(-4px); }
     .payment-card .pay-icon { font-size: 2.5rem; margin-bottom: 12px; }
-
     .payment-card p {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       color: var(--warm-gold);
     }
-
     .payment-note {
       margin-top: 24px;
       font-size: 0.87rem;
       color: #7a5a50;
     }
-
     .payment-note strong { color: var(--pink); }
-
-    /* ===================== BOOKING ===================== */
     .booking-section {
       background: linear-gradient(135deg, #100806, #0a0806);
       text-align: center;
       border-top: 1px solid var(--rose-gold);
     }
-
     .booking-box {
       max-width: 720px;
       margin: 0 auto;
     }
-
     .booking-box p {
       color: #c4a99a;
       font-size: 0.95rem;
       line-height: 1.9;
       margin-bottom: 16px;
     }
-
     .booking-box strong { color: var(--warm-gold); }
-
     .calendly-inline-widget {
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--rose-gold);
       margin-top: 30px;
     }
-
-    /* ===================== FOOTER ===================== */
     footer {
       background: #050403;
       border-top: 1px solid #1a1008;
       padding: 50px 20px;
       text-align: center;
     }
-
     .footer-script {
       font-family: 'Great Vibes', cursive;
       font-size: 2.5rem;
       color: var(--warm-gold);
       margin-bottom: 6px;
     }
-
     .footer-tagline {
       font-size: 0.7rem;
       color: #4a3028;
@@ -669,21 +552,17 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
-
     .footer-thank {
       font-family: 'Great Vibes', cursive;
       font-size: 1.3rem;
       color: var(--rose-gold-light);
       margin-bottom: 16px;
     }
-
     .footer-note {
       font-size: 0.75rem;
       color: #3a2018;
       line-height: 1.8;
     }
-
-    /* ===================== MOBILE ===================== */
     @media (max-width: 768px) {
       nav { padding: 16px 20px; }
       .nav-links { display: none; }
@@ -692,14 +571,11 @@
       .service-card { padding: 36px 20px; }
       .hero-script { font-size: 3.5rem; }
     }
-
-    /* ===================== FADE IN ===================== */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
@@ -708,7 +584,6 @@
 </head>
 <body>
 
-<!-- ===================== NAVBAR ===================== -->
 <nav>
   <div class="nav-logo">Haus <span>of Nishka</span></div>
   <ul class="nav-links">
@@ -721,7 +596,6 @@
   </ul>
 </nav>
 
-<!-- ===================== HERO ===================== -->
 <section class="hero" id="home">
   <div class="hero-badge">✦ Now Accepting Clients ✦</div>
   <div class="hero-script">Haus of Nishka</div>
@@ -740,7 +614,6 @@
   <p class="hero-scroll">↓ scroll to explore</p>
 </section>
 
-<!-- ===================== NOTICE BANNER ===================== -->
 <div class="notice-banner">
   <p>
     💌 <strong>IMPORTANT:</strong> Please send your nail inspo
@@ -750,7 +623,6 @@
   </p>
 </div>
 
-<!-- ===================== ABOUT ===================== -->
 <section id="about" class="about-section">
   <div class="about-inner fade-in">
     <span class="section-label">✦ Welcome ✦</span>
@@ -779,66 +651,40 @@
   </div>
 </section>
 
-<!-- ===================== SERVICE ===================== -->
 <section class="service-section" id="service">
   <span class="section-label centered">✦ What I Offer ✦</span>
   <h2 class="section-title centered">The <span class="gold">Service</span></h2>
   <div class="section-line"></div>
-
   <div class="service-card fade-in">
     <div class="service-icon">💅</div>
     <div class="service-name">Gel X Nails</div>
     <div class="service-price">$30 <span>/ full set</span></div>
     <div class="service-price-note">✦ Introductory price · cost to cover supplies only ✦</div>
-
     <ul class="service-details">
-      <li>
-        <span class="icon">✦</span>
-        <span class="text">Full set of Gel X extensions</span>
-      </li>
-      <li>
-        <span class="icon">✦</span>
-        <span class="text">Custom shapes &amp; lengths</span>
-      </li>
-      <li>
-        <span class="icon">✦</span>
-        <span class="text">Nail art &amp; designs — inspo photo required 24 hrs before appointment</span>
-      </li>
-      <li>
-        <span class="icon">✦</span>
-        <span class="text">Please allow up to 4 hours — I'm thorough and new to this!</span>
-      </li>
-      <li>
-        <span class="icon">✦</span>
-        <span class="text">Home-based studio — 1 client at a time, no extra guests allowed</span>
-      </li>
-      <li>
-        <span class="icon">✦</span>
-        <span class="text">Payment: Zelle or exact cash only</span>
-      </li>
+      <li><span class="icon">✦</span><span class="text">Full set of Gel X extensions</span></li>
+      <li><span class="icon">✦</span><span class="text">Custom shapes &amp; lengths</span></li>
+      <li><span class="icon">✦</span><span class="text">Nail art &amp; designs — inspo photo required 24 hrs before appointment</span></li>
+      <li><span class="icon">✦</span><span class="text">Please allow up to 4 hours — I'm thorough and new to this!</span></li>
+      <li><span class="icon">✦</span><span class="text">Home-based studio — 1 client at a time, no extra guests allowed</span></li>
+      <li><span class="icon">✦</span><span class="text">Payment: Zelle or exact cash only</span></li>
     </ul>
-
     <div class="same-day-box">
       <p>
         ⚡ <strong>Same-Day Bookings Available!</strong><br/>
         A <strong>+$10 upcharge</strong> applies to all same-day appointments
-        (total = $40). Book your slot and you will receive your confirmation
-        details right away!
+        (total = $40). Book your slot and you will receive your confirmation details right away!
       </p>
     </div>
-
     <br/>
     <a href="#book" class="btn-rosegold">Book Now</a>
   </div>
 </section>
 
-<!-- ===================== GALLERY ===================== -->
 <section class="gallery-section" id="gallery">
   <span class="section-label">✦ My Work ✦</span>
   <h2 class="section-title centered">The <span class="gold">Gallery</span></h2>
   <div class="section-line"></div>
   <p style="color:#7a5a50; margin-bottom:40px; font-size:0.9rem;">Real sets done by me 💅🤍</p>
-
   <div class="gallery-grid fade-in">
     <div class="gallery-item">
       <img src="photo1.jpg" alt="Gel X nails by Nishka"/>
@@ -855,7 +701,6 @@
   </div>
 </section>
 
-<!-- ===================== INSPO ===================== -->
 <section class="inspo-section" id="inspo">
   <div class="inspo-box fade-in">
     <h2>💌 Send Your Nail Inspo!</h2>
@@ -875,7 +720,6 @@
   </div>
 </section>
 
-<!-- ===================== HOURS ===================== -->
 <section class="hours-section" id="hours">
   <span class="section-label">✦ Come See Me ✦</span>
   <h2 class="section-title centered">Studio <span class="gold">Hours</span></h2>
@@ -883,7 +727,6 @@
   <p style="color:#7a5a50; margin-bottom:40px; font-size:0.88rem;">
     ⏱️ Please allow up to <strong style="color:var(--pink)">4 hours</strong> per appointment
   </p>
-
   <div class="hours-grid fade-in">
     <div class="hours-card">
       <div class="hours-day">Sunday</div>
@@ -916,12 +759,10 @@
   </div>
 </section>
 
-<!-- ===================== POLICIES ===================== -->
 <section class="policies-section" id="policies">
   <span class="section-label">✦ Please Read ✦</span>
   <h2 class="section-title centered">Studio <span class="gold">Policies</span></h2>
   <div class="section-line"></div>
-
   <div class="policies-grid fade-in">
     <div class="policy-card">
       <div class="policy-icon">🚗</div>
@@ -977,7 +818,6 @@
   </div>
 </section>
 
-<!-- ===================== PAYMENT ===================== -->
 <section class="payment-section" id="payment">
   <span class="section-label">✦ Payment ✦</span>
   <h2 class="section-title centered">How to <span class="gold">Pay</span></h2>
@@ -998,7 +838,6 @@
   </p>
 </section>
 
-<!-- ===================== BOOKING ===================== -->
 <section class="booking-section" id="book">
   <div class="booking-box fade-in">
     <span class="section-label">✦ Ready? Let's Go ✦</span>
@@ -1014,18 +853,15 @@
     <p style="color:var(--rose-gold-light); font-size:0.85rem;">
       💌 Don't forget to send your nail inspo 24 hours before your appointment!
     </p>
-
-    <!-- Replace YOUR-LINK-HERE with your Calendly link -->
     <div
       class="calendly-inline-widget"
-      data-url="https://calendly.com/YOUR-LINK-HERE?hide_gdpr_banner=1&background_color=100806&text_color=fff8f5&primary_color=b76e79"
+      data-url="https://calendly.com/haus-of-nishka?hide_gdpr_banner=1&background_color=100806&text_color=fff8f5&primary_color=b76e79"
       style="min-width:280px;height:700px;">
     </div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="footer-script">Haus of Nishka Studio</div>
   <p class="footer-tagline">Gel X Nails · Home Based · By Appointment Only</p>
@@ -1035,7 +871,6 @@
   <p class="footer-note" style="margin-top:12px; color:#2a1810; font-size:0.7rem; letter-spacing:2px;">MORE THAN JUST NAILS... IT'S A VIBE.</p>
 </footer>
 
-<!-- ===================== SCROLL ANIMATION ===================== -->
 <script>
   const fadeEls = document.querySelectorAll('.fade-in');
   const observer = new IntersectionObserver((entries) => {
